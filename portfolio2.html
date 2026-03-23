@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taher Portfolio</title>
+
+<style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background:black;
+    overflow-x:hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scroll-animate {
+    opacity: 0;
+}
+
+.scroll-animate.animate {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.scroll-animate.animate-left {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.scroll-animate.animate-right {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.scroll-animate.animate-scale {
+    animation: scaleIn 1s ease forwards;
+}
+
+/* ================= HERO ================= */
+.homepage{
+    background:url(0bf53fa784183ff94be6a0227c5b2c16\ 1.png) center/cover no-repeat;
+    height:100vh;
+    background-attachment:fixed;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    border:1px solid white;
+    border-radius:50px;
+    padding:14px 26px;
+    background:rgba(0,0,0,0.6);
+}
+
+.navbar li{
+    display:inline;
+    color:white;
+    padding:10px 20px;
+    font-size:16px;
+}
+
+.navbar li:hover{
+    color:gray;
+}
+
+/* ================= HERO TEXT ================= */
+.main{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.text{
+    text-align:center;
+}
+
+.text h1{
+    font-size:clamp(42px,8vw,100px);
+    background:linear-gradient(to right,#c20bc9,#e6c406,#ff0bd6);
+    color:transparent;
+    -webkit-background-clip:text;
+}
+
+.text h2{
+    color:white;
+    margin-top:20px;
+    font-size:clamp(14px,3vw,22px);
+}
+
+.text button{
+    margin-top:30px;
+    padding:12px 40px;
+    color:white;
+    border:2px solid #00a2ff;
+    background:linear-gradient(to right,#9900ff,#08b9ff,#e3cce6,#ffe867);
+    border-radius:5px;
+}
+
+/* ================= ABOUT ================= */
+.main1{
+    display:flex;
+    justify-content:center;
+}
+
+.about{
+    width:90%;
+    max-width:1200px;
+    border:1px solid white;
+    border-radius:35px;
+    padding-bottom:40px;
+}
+
+.me{
+    margin:40px;
+    font-size:48px;
+    background:linear-gradient(to right,#f700ff,yellow,#e100ff,#9467ff);
+    color:transparent;
+    -webkit-background-clip:text;
+}
+
+.about .main{
+    height:auto;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.content{
+    width:60%;
+    color:white;
+    border:1px solid white;
+    border-radius:24px;
+    padding:20px;
+    opacity:.75;
+    font-size:18px;
+}
+
+.maini{
+    width:360px;
+    border:1px solid white;
+    border-radius:24px;
+}
+
+.maini img{
+    width:80%;
+    display:block;
+    margin:20px auto;
+    border-radius:20px;
+}
+
+/* ================= SKILLS ================= */
+.main2{
+    background-image: url(0bf53fa784183ff94be6a0227c5b2c16\ 1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            background-attachment: fixed;
+}
+
+.skill{
+    width:90%;
+    margin:10% auto;
+    border:1px solid white;
+    border-radius:20px;
+    padding-bottom:40px;
+}
+
+.skill p{
+    margin:40px;
+    font-size:48px;
+    background:linear-gradient(to right,yellow,#e100ff,#9467ff);
+    color:transparent;
+    -webkit-background-clip:text;
+}
+
+.texts{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    font-size:32px;
+    color:white;
+}
+
+.texts li{
+    padding:10px 0;
+}
+
+/* ================= MARQUEE ================= */
+marquee img{
+    width:max-content;
+    margin:0 12px;
+    height: 21.5vh;
+}
+/* ---------- RESPONSIVE PROJECT SECTION ---------- */
+
+/* Title */
+.info{
+    text-align: center; /* center looks better on all screens */
+    background: linear-gradient(to right,
+        rgb(247, 0, 255),
+        rgb(225, 0, 255),
+        rgb(148, 103, 255)
+    );
+    color: transparent;
+    font-size: clamp(32px, 6vw, 55px); /* responsive text */
+    -webkit-background-clip: text;
+    width: fit-content;
+    margin: 50px auto 0; /* auto center */
+}
+
+/* Grid */
+.project-grid {
+    margin: 80px auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Card */
+.project-card {
+    border: 1px solid white;
+    background: #070606;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Image */
+.project-card img {
+    width: 100%;
+    height: clamp(180px, 30vw, 250px);
+    object-fit: cover;
+}
+
+/* Content */
+.project-info {
+    padding: 1.5rem;
+    color: white;
+}
+
+.project-info h3 {
+    font-size: clamp(20px, 3vw, 28px);
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    opacity: 0.6;
+    font-size: clamp(14px, 2.5vw, 16px);
+}
+
+/* Link */
+.project-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: #2980b9;
+}
+.social-links {
+    margin-left: 44%;
+    margin-top: 5%;
+}
+
+.social-links a img {
+    height: 8vh;
+}
+
+/* Responsive implementation */
+@media (max-width: 768px) {
+    .social-links {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .social-links a img {
+        height: 4.5vh;
+    }
+}
+
+/* ---------- MOBILE FIX ---------- */
+@media (max-width: 576px) {
+    .project-grid {
+        margin-top: 50px;
+        gap: 1.5rem;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+    .navbar{
+        width:90%;
+        text-align:center;
+    }
+
+    .navbar li{
+        font-size:14px;
+        padding:8px 10px;
+    }
+
+    .content{
+        width:100%;
+        font-size:16px;
+    }
+
+    .texts{
+        flex-direction:column;
+        align-items:center;
+        font-size:24px;
+    }
+
+    .me,
+    .skill p{
+        font-size:36px;
+    }
+}
+
+/* ================= TABLET ================= */
+@media(max-width:1024px){
+    .content{
+        width:100%;
+    }
+
+    .texts{
+        font-size:28px;
+    }
+}
+/* ===== HEADING ===== */
+.main4 h1{
+  text-align: center;
+  color: white;
+  font-size: 90px;
+  background: transparent;
+}
+
+.photoshop-section {
+  padding: 80px 0;
+  background: #0a0a0a;
+}
+
+/* 🔥 CENTERED CONTAINER */
+.container {
+  max-width: 1200px;   /* controls width */
+  margin: auto;        /* centers content */
+  padding: 0 20px;     /* side spacing for small screens */
+}
+
+/* TITLE */
+.section-title {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* GRID */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5; /* 🔥 same style as your image */
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps image clean */
+  transition: 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .card img {
+    height: 220px;
+  }
+}
+
+.phone{
+    color: white;
+    font-family: sans-serif bold="90px";
+    font-size: 35px;
+    margin-top: 10%;
+}
+.main5{
+    background:url(0bf53fa784183ff94be6a0227c5b2c16\ 1.png) center/cover no-repeat;
+    background-attachment:fixed;
+    height:50vh;
+
+}
+.contact{
+    display: flex;
+    justify-content: center;
+}
+/* ===== TABLET ===== */
+@media (max-width: 1024px){
+    .main5{
+        background-attachment: scroll; /* fixes mobile lag */
+    }
+
+    .phone{
+        font-size: 28px;
+    }
+}
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px){
+    .main4 h1{
+        font-size: 42px;
+    }
+
+    .phone{
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
+    .contact{
+        padding: 0 10px;
+    }
+}
+
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px){
+    .main4 h1{
+        font-size: 32px;
+    }
+
+    .phone{
+        font-size: 18px;
+    }
+}
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #6a00ff, #ff00c8);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Projects Section */
+.projects {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* Project Card */
+.project-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 12px;
+}
+
+.project-info span {
+    font-size: 13px;
+    color: #b98cff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+
+
+/* ===== BUTTON ===== */
+button{
+  margin-top:10px;
+  padding:14px;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+  color:white;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:transform 0.2s ease,opacity 0.2s ease;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  opacity:0.9;
+}
+
+/* ===== RESPONSIVE (margin-left NOT removed) ===== */
+@media (max-width:1024px){
+  .main4 h1{
+    margin-left:30%;
+    font-size:48px;
+  }
+
+  .form-wrapper{
+    margin-left:25%;
+  }
+}
+
+@media (max-width:768px){
+  .main4 h1{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    font-size:40px;
+  }
+
+  .form-wrapper{
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+  }
+
+  .row{
+    flex-direction:column;
+  }
+}
+
+@media (max-width:480px){
+  .main4 h1{
+    font-size:32px;
+  }
+}
+
+  .form-wrapper{
+    padding:25px;
+    margin-top:30px;
+  }
+</style>
+</head>
+<body>
+
+<div class="homepage">
+    <ul class="navbar">
+        <li>About</li>
+        <li>Contact us</li>
+        <li>Project</li>
+    </ul>
+
+    <div class="main">
+        <div class="text scroll-animate">
+            <h1>I'm Taher<br>Mangal Mahudi</h1>
+            <h2>follow us designing intuitive experience that <br>
+             connect people and tecnologyy</h2>
+            <button>View my project</button>
+        </div>
+    </div>
+</div>
+
+<div class="main1">
+    <div class="about scroll-animate">
+        <div class="me">About me</div>
+
+        <div class="main">
+            <div class="content" id="about">
+                <p>
+                 I’m a passionate UI/UX designer dedicated to creating digital experiences 
+                 that are both visually appealing andeffortlesslyfunctional. I believe great
+                 design begins with empathy— understanding users, their goals, and the problems 
+                 they face. My approach combines creativity with research andstrategy to craft
+                 user-centered designs that not only look goodbut also deliver meaningful impact.
+                 From wireframes to final prototypes, I focus on building interfaces that feel 
+                 natural, intuitive, and enjoyable to use. Every project is an opportunityfor me
+                 to turn ideas into purposeful experiences that connect people with technology 
+                 in a seamless way.
+                </p>
+            </div>
+
+            <div class="maini">
+                <img src="92ef5ad7-70b4-4541-826a-94b929cccf18 1.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main2">
+    <div class="skill scroll-animate">
+        <p>Skills</p>
+
+        <div class="texts">
+            <ul>
+                <li>User Interface</li>
+                <li>Web Design</li>
+            </ul>
+            <ul>
+                <li>User Experience</li>
+                <li>Graphic Design</li>
+            </ul>
+        </div>
+
+        <marquee direction="left" scrollamount="8.5">
+            <img src="PHOTO SHOP.png">
+            <img src="xd.png">
+            <img src="figma.png">
+            <img src="lightroom.png">
+            <img src="illustrater.png">
+        </marquee>
+
+        <marquee direction="right" scrollamount="10">
+            <img src="html.png">
+            <img src="CSS.png">
+            <img src="html.png">
+            <img src="CSS.png">
+        </marquee>
+    </div>
+</div>
+<div class="main3">
+        <div class="container">
+            <h2 class="info">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card scroll-animate animate-scale">
+                    <img src="wall-mockup-dark-tones-green-600nw-2249639263 1 (1).png" alt="Project 1">
+                    <div class="project-info">
+                        <h3>Furni</h3>
+                        <p>This project explored how AR can help customers make confident furniture choices. Users can preview real-scale furniture in their room, change colors or materials, and instantly see how each piece fits their décor.”  .</p>
+                        <a href="https://www.figma.com/proto/ZpesSephEfgsDCPD8dF8Wg/Untitled?node-id=1-2&starting-point-node-id=1%3A2&t=NcC83MD4aCd0tVJ1-1" class="project-link"><i class="fas fa-external-link-alt"></i> view in figma</a>
+                    </div>
+                </div>
+                <div class="project-card scroll-animate animate-scale">
+                    <img src="Frame 12.png" alt="Project 2">
+                    <div class="project-info">
+                        <h3>MuscleX – A UI/UX Approach to Next-Gen Fitness</h3>
+                        <p>MuscleX is a unified fitness experience that brings together a powerful workout-tracking app and a high-quality supplement range under one brand. The app helps users build routines, track progress, and stay motivated, while the supplement line supports strength, recovery, and overall performance..</p>
+                        <a href="https://www.figma.com/proto/ApdMJImMRAufkGXmGUDl5J/Untitled?node-id=1-2&starting-point-node-id=1%3A2&t=znoqN9E6kLLUINxT-1" class="project-link"><i class="fas fa-external-link-alt"></i> View in figma</a>
+                    </div>
+                </div>
+                </div>
+                </div>
+                 <header class="hero">
+        <h1>Web Design Showcase</h1>
+        <p>Crafting modern, responsive & user-focused designs</p>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects">
+
+        <div class="project-card scroll-animate">
+            <img src="UI HM.png" alt="Project 1">
+            <div class="project-info">
+                <a href="https://www.figma.com/proto/5tK0hqzmym5SIZiZM8QwsD/Untitled?node-id=1-2&t=hCyeLtqwi2ePZfr9-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" class="project-link"><i class="fas fa-external-link-alt"></i> View in figma</a>
+            </div>
+        </div>
+
+        <div class="project-card scroll-animate">
+            <img src="WEB  FIMGA.png" alt="Project 2">
+            <div class="project-info">
+                <a href="https://www.figma.com/proto/aqBmMBD0FNNh56Lk3XKupG/Untitled?node-id=1-6&t=NBqHEz4Z8YDpjUg0-1" class="project-link"><i class="fas fa-external-link-alt"></i> View in figma</a>
+            </div>
+        </div>
+
+        <div class="project-card scroll-animate">
+            <img src="ui website heron.png" alt="Project 3">
+            <div class="project-info">
+                <a href="https://www.figma.com/proto/ju56WgFZ8gygCpJtx8Xeba/Untitled?node-id=2-2&t=7dMzuH7CTWoPv6pZ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" class="project-link"><i class="fas fa-external-link-alt"></i> View in figma</a>
+            </div>
+        </div>
+            </div>
+<section class="photoshop-section">
+  <div class="container">
+    <h1 class="section-title">photoshop</h1>
+
+    <div class="gallery">
+      <div class="card"><img src="apple.png" alt=""></div>
+      <div class="card"><img src="ball shadow.png" alt=""></div>
+      <div class="card"><img src="PHOTO 2.jpeg" alt=""></div>
+      <div class="card"><img src="PHOTOSHOP 3.jpeg" alt=""></div>
+      <div class="card"><img src="PHOTOS 4.jpeg" alt=""></div>
+      <div class="card"><img src="POHOT 1.jpeg" alt=""></div>
+    </div>
+  </div>
+</section>
+    <div class="main5">
+         <div class="main4 scroll-animate">
+           <h1> contact me</h1>
+        </div>
+          <div class="form-wrapper scroll-animate">
+    
+    </div>
+    <div class="contact">
+       <p class="phone">contact no:+91 8200448768</p>
+    </div>
+    
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/taher-mangalmahudi-71bb8a390?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"><img src="in logo..png" alt=""></i></a>
+                <a href="mailto:tahermangalmaudit@gmail.com">><i class="fab fa-gmail"><img src="gmail.png" alt=""></i></a>
+                <a href="https://www.instagram.com/taher_m44?igsh=dTI3emFlM3Z3c3hu"><i class="fab fa-instagram"><img src="insta logo.png" alt=""></i></a>
+            </div>
+             </div>
+        </div>
+    </div>
+    
+       
+        
+</div>
+</div>
+
+<script>
+   // ================= SCROLL ANIMATION =================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const scrollObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.classList.contains('animate-scale')) {
+                entry.target.classList.add('animate-scale');
+            } else if (entry.target.classList.contains('animate-left')) {
+                entry.target.classList.add('animate-left');
+            } else if (entry.target.classList.contains('animate-right')) {
+                entry.target.classList.add('animate-right');
+            } else {
+                entry.target.classList.add('animate');
+            }
+            scrollObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+    scrollObserver.observe(el);
+});
+
+// ================= SMOOTH SCROLL NAVBAR =================
+const navItems = document.querySelectorAll('.navbar li');
+
+// Section mapping
+const sections = {
+    "About": document.getElementById("about"),
+    "Contact us": document.querySelector(".form-wrapper"),
+    "Project": document.querySelector(".main3")
+};
+
+navItems.forEach(item => {
+    item.style.cursor = "pointer";
+
+    item.addEventListener("click", () => {
+        const section = sections[item.textContent.trim()];
+        if (section) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+});
+
+// ================= BUTTON SCROLL =================
+const projectBtn = document.querySelector(".text button");
+
+projectBtn.addEventListener("click", () => {
+    const projectSection = document.querySelector(".main3");
+    projectSection.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+// ================= ACTIVE NAVBAR ON SCROLL =================
+const allSections = document.querySelectorAll("section, .main1, .main2, .main3, .form-wrapper");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    allSections.forEach(sec => {
+        const sectionTop = sec.offsetTop - 150;
+        if (scrollY >= sectionTop) {
+            current = sec.className;
+        }
+    });
+
+    navItems.forEach(li => {
+        li.style.color = "white";
+        if (
+            (current.includes("main1") && li.textContent.includes("About")) ||
+            (current.includes("main3") && li.textContent.includes("Project")) ||
+            (current.includes("form-wrapper") && li.textContent.includes("Contact"))
+        ) {
+            li.style.color = "#00a2ff";
+        }
+    });
+});
+
+// ================= NAVBAR BACKGROUND ON SCROLL =================
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.style.background = "rgba(0,0,0,0.9)";
+        navbar.style.backdropFilter = "blur(10px)";
+    } else {
+        navbar.style.background = "rgba(0,0,0,0.6)";
+        navbar.style.backdropFilter = "blur(0px)";
+    }
+});
+
+// ================= CONTACT FORM HANDLER =================
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const inputs = form.querySelectorAll("input, textarea");
+    let valid = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            input.style.borderColor = "red";
+            valid = false;
+        } else {
+            input.style.borderColor = "#2a2a2a";
+        }
+    });
+
+    if (valid) {
+        alert("Message Sent Successfully 🚀");
+        form.reset();
+    }
+});
+</script>
+</body>
+</html>
